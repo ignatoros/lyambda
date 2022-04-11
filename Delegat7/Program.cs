@@ -3,17 +3,28 @@
 namespace Delegat7
 
 {
-    public delegate bool CompareDelegate(int a, int b);
+    public delegate int SubDelegate(int a, int b);
 
 
     class Program
     {
 
         static void Main(string[] args)
+
         {
-            CompareDelegate cD = (x, y) => x == y;
-            bool result = cD(9, 10);
-            Console.WriteLine(result.ToString());
+            //SubDelegate sD = (s,d) =>
+            //{
+            //int res = s - d;
+            //Return res;
+            //}
+
+            int c = new SubDelegate((s, d) =>
+            {
+                int res = s - d;
+                return res;
+
+            }).Invoke(9, 6);
+            Console.WriteLine(c);
             Console.ReadKey();
         }
     }
